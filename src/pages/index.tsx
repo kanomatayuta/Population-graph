@@ -1,4 +1,5 @@
 import CheckBox from "@/components/CheckBox"; // CheckBoxコンポーネントをインポート。
+import Graph from "@/components/Graph";
 import axios from "axios"; // axiosライブラリをインポート。HTTPリクエストを行うためのライブラリ。
 import { useState, useEffect } from "react"; // useStateとuseEffectフックをインポート。
 
@@ -28,6 +29,7 @@ const Home: React.FC = () => {
       .then((results) => {
         // データの取得に成功した場合、取得したデータをステートにセット。
         setPreFectures(results.data);
+        // console.log(results.data);
       })
       // catchでエラー時の挙動を定義
       .catch((error) => {
@@ -77,16 +79,21 @@ const Home: React.FC = () => {
       // console.log("キャンセル" + prefCode + prefName);
     }
   };
+  // 都道府県のデータが存在する場合、CheckBoxコンポーネントをレンダリング。
+  //CheckBoxコンポーネントをレンダリング。
   return (
     <>
       <div>
-        <h1>都道府県</h1>
+        <h1>都道府県別の総人口推移</h1>
+        <h2>都道府県</h2>
         {prefectures && (
-          // 都道府県のデータが存在する場合、CheckBoxコンポーネントをレンダリング。
           <CheckBox prefectures={prefectures.result} onChange={handler} />
         )}
       </div>
-      <div></div>
+      <div>
+        <h2>人口推移グラフ</h2>
+        <Graph population={prefPopulation}></Graph>
+      </div>
     </>
   );
 };
