@@ -17,7 +17,7 @@ export const usePrefectures = () => {
     axios
       // RESAS(地域経済分析システム)のAPIから都道府県一覧を取得。
       .get("https://opendata.resas-portal.go.jp/api/v1/prefectures", {
-        headers: { "X-API-KEY": "API-KEYを入力" },
+        headers: { "X-API-KEY": process.env.NEXT_PUBLIC_RESAS_API_KEY },
       })
       // thenで成功した場合の処理
       .then((results) => {

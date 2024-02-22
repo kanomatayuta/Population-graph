@@ -36,7 +36,7 @@ const PrefectureSelector: React.FC<PrefectureSelectorProps> = ({
             String(prefCode),
           {
             headers: {
-              "X-API-KEY": "API-KEYを入力",
+              "X-API-KEY": process.env.NEXT_PUBLIC_RESAS_API_KEY,
             },
           }
         )
