@@ -16,8 +16,6 @@ const Graph: React.FC<Props> = ({ population }) => {
     for (let pd of p.data) {
       // pd.valueをdata配列に追加。
       data.push(pd.value);
-      // console.log(pd.year);
-      // console.log(pd.value);
     }
     series.push({
       type: "line", // チャートのタイプを指定。

@@ -49,11 +49,9 @@ const PrefectureSelector: React.FC<PrefectureSelectorProps> = ({
           });
           setPrefPopulation(c_prefPopulation);
           onPopulationChange(c_prefPopulation);
-          // console.log("成功" + prefCode + prefName);
         })
         // catchでエラー時の挙動を定義。
         .catch((error) => {
-          // console.log(error.message);
           return;
         });
     } else {
@@ -63,7 +61,6 @@ const PrefectureSelector: React.FC<PrefectureSelectorProps> = ({
       c_prefPopulation.splice(deleteIndex, 1);
       setPrefPopulation(c_prefPopulation);
       onPopulationChange(c_prefPopulation);
-      // console.log("キャンセル" + prefCode + prefName);
     }
   };
 

@@ -23,12 +23,9 @@ export const usePrefectures = () => {
       .then((results) => {
         // データの取得に成功した場合、取得したデータをステートにセット。
         setPreFectures(results.data);
-        // console.log(results.data);
       })
       // catchでエラー時の挙動を定義
-      .catch((error) => {
-        // console.log(error.message);
-      });
+      .catch((error) => {});
   }, []);
 
   return prefectures;
